@@ -1,8 +1,10 @@
-# Session Summary: Building a Basic RAG System
+# Session 002: Building a Basic RAG System
 
+**Session Number**: 002
 **Date**: 2024-02-15
 **Duration**: 2.5 hours
 **Learning Phase**: Phase 1 - Module 1.2
+**File**: `sessions/session-002-rag-fundamentals.md`
 
 ---
 
@@ -100,6 +102,14 @@ A basic RAG system that:
 - [ ] Add re-ranking step to improve top results
 - [ ] Test with more diverse queries
 - [ ] Optimize chunking for different content types
+
+---
+
+## Next Session Plan
+
+**Session 003**: Agentic Workflows — building multi-step agents
+**Module**: Phase 1 - Module 1.3: Agentic Workflows
+**Prerequisites**: Complete hybrid search experiment from homework above
 
 ---
 

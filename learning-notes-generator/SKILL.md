@@ -190,11 +190,13 @@ For checklists, decision trees, or debugging guides (e.g., "RAG Debugging Checkl
 ### Template 2: Session Summary
 
 ```markdown
-# Session Summary: [Title]
+# Session [NNN]: [Title]
 
+**Session Number**: [NNN] (sequential, zero-padded)
 **Date**: [Date]
 **Duration**: [Time spent]
 **Learning Phase**: [e.g., "Phase 1 - Module 1.2"]
+**File**: `sessions/session-[NNN]-[topic-slug].md`
 
 ---
 
@@ -264,7 +266,15 @@ For checklists, decision trees, or debugging guides (e.g., "RAG Debugging Checkl
 
 - [ ] [Action item 1]
 - [ ] [Action item 2]
-- [ ] [What to learn next session]
+- [ ] [Homework before next session]
+
+---
+
+## Next Session Plan
+
+**Session [N+1]**: [What will be covered next]
+**Module**: [e.g., "Phase 1 - Module 1.3: Agentic Workflows"]
+**Prerequisites**: [Anything to complete before next session]
 
 ---
 
@@ -654,7 +664,7 @@ Use when: [Scenario]
 
 4. **Suggest File Path**:
    - Concept notes → `concepts/[concept-name].md`
-   - Session summaries → `sessions/[date]-[topic].md`
+   - Session summaries → `sessions/session-[NNN]-[topic].md` (zero-padded, sequential — check existing files to determine next number)
    - Exercises → `exercises/[date]-[name]/README.md`
    - Decisions → `decisions/[date]-[decision].md`
    - Quick refs → `quick-reference/[topic].md`

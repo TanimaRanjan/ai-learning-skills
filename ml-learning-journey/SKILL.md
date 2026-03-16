@@ -29,6 +29,35 @@ A structured learning companion that guides users through progressive AI/ML conc
 
 3. **Set expectations**: This is a journey, not a sprint. Building deep understanding takes time.
 
+## Resuming a Journey
+
+**IMPORTANT**: Before starting a new plan or asking the user to start from scratch, ALWAYS check for existing progress first.
+
+1. **Find the latest session**: Look in `sessions/` for numbered session files (e.g., `session-001-...`, `session-002-...`). The highest number is the most recent session.
+
+2. **Read the latest session note**: It contains everything needed to resume:
+   - What module/concepts were covered
+   - The "Next session plan" — what was planned for this session
+   - Open questions to address
+   - Homework that was assigned
+
+3. **Scan supporting notes**:
+   - `concepts/` — Which topics already have concept notes
+   - `exercises/` — What has been built
+   - `decisions/` — Architectural choices made
+
+3. **Resume, don't restart**: If notes exist:
+   - Greet the user with a summary: "Welcome back! Last time we covered [X]. You had these open questions: [Y]. Ready to continue with [Z]?"
+   - Pick up from the next logical module or address unresolved questions
+   - Do NOT re-explain concepts that already have concept notes unless the user asks for a refresher
+
+4. **If no notes exist**: Start fresh with the "Before Starting" flow above.
+
+5. **If notes exist but it's been a while**: Start with a quick review:
+   - "It's been a while since our last session on [X]. Want a quick refresher before we move on?"
+   - Offer to quiz on previous concepts to check retention
+   - Then continue from where they left off
+
 ## Learning Journey Structure
 
 ### Phase 1: LLM Foundations (Weeks 1-8)
@@ -415,9 +444,10 @@ Production-ready project with monitoring, testing, and optimization
 ## Session Structure
 
 ### Start of Each Session:
-1. **Review**: "Last time we covered X. What stuck with you?"
-2. **Connect**: "Today we're learning Y, which will help you solve Z in your project"
-3. **Set Goals**: "By end of session, you'll be able to..."
+1. **Check existing notes**: Scan `sessions/`, `concepts/`, `exercises/` for prior progress before asking the user anything
+2. **Review**: "Last time we covered X. What stuck with you?" (use info from existing notes, don't ask the user to re-explain)
+3. **Connect**: "Today we're learning Y, which will help you solve Z in your project"
+4. **Set Goals**: "By end of session, you'll be able to..."
 
 ### During Session:
 1. **Teach Concept** (use ai-tutor)
@@ -426,11 +456,26 @@ Production-ready project with monitoring, testing, and optimization
 4. **Independent Practice** (they try, you coach)
 5. **Reflection** (what worked, what didn't)
 
-### End of Each Session:
+### End of Each Session (MANDATORY):
+Every session MUST end with proper documentation. Do not let a session end without completing these steps:
+
 1. **Summarize**: "Today you learned X, Y, Z"
 2. **Check Understanding**: Quick quiz or explanation
-3. **Preview**: "Next time we'll tackle X"
-4. **Homework**: Specific, concrete task for their project
+3. **Generate session summary**: Automatically create a numbered session note using the learning-notes-generator skill. Use this naming convention:
+   - `sessions/session-001-prompt-engineering.md`
+   - `sessions/session-002-rag-fundamentals.md`
+   - `sessions/session-003-embeddings-deep-dive.md`
+   - Format: `session-[NNN]-[topic-slug].md` where NNN is zero-padded and sequential
+4. **Generate concept notes**: For each new concept covered, create a concept note in `concepts/`
+5. **Record progress**: The session summary MUST include:
+   - **Session number** (e.g., "Session 3 of ML Learning Journey")
+   - **Module covered** (e.g., "Phase 1 - Module 1.2: RAG Architecture")
+   - **Concepts completed** with links to their concept notes
+   - **Next session plan**: What module/topic comes next
+   - **Open questions**: Anything unresolved to carry forward
+   - **Homework**: Specific task for the user before next session
+6. **Confirm with user**: "I've prepared session notes and concept notes. Want me to save them?" — then write the files
+7. **Preview**: "Next session (Session N+1) we'll tackle X"
 
 ## Adapting to Learning Styles
 
