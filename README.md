@@ -329,13 +329,6 @@ Inspired by:
 - The Zettelkasten method for knowledge management
 - Learning in public movement
 
-## 🚦 Status
-
-- ✅ ML Learning Journey: Stable, tested over 8 weeks
-- ✅ Learning Notes Generator: Stable, 100+ notes generated
-- 🚧 Integration with spaced repetition: In progress
-- 📋 Knowledge graph visualization: Planned
-
 ## ⭐ If This Helped You
 
 If these skills helped your AI learning journey:
